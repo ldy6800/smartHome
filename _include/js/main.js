@@ -2,17 +2,6 @@ jQuery(function($){
 
 var BRUSHED = window.BRUSHED || {};
 
-
-$('#main').on('click',function(){ 
-  location.href="main.html";
-});
-$('#charges').on('click',function(){ 
-  location.href="charges.html";
-});
-$('#smarthome').on('click',function(){ 
-  location.href="smarthome.html";
-});
-
 /* ==================================================
    Mobile Navigation
 ================================================== */

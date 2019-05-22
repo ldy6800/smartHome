@@ -7,9 +7,14 @@ class Auth extends CI_Controller {
 		parent::__construct();
 		$this->load->model('auth_model');
 	}
-	
+
+	private function foot(){
+		$this->load->view('footer');
+
+	}	
 	public function login() {
-		$this->load->view('login');				
+		$this->load->view('login');			
+		$this->foot();	
 	}
 
 	public function authentication() {
