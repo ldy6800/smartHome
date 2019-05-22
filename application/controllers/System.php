@@ -20,6 +20,10 @@ class System extends CI_Controller {
 		echo '<pre>'.$result.'</pre>';
 	}
 
+	public function pubChange($flag){
+		$this->publishMQTT('change', $flag);
+	}
+
 	public function readFee(){
 		$fee = array();
 		$handle = fopen("/var/www/data/fee.csv", "r");

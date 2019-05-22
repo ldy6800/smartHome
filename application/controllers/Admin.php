@@ -8,16 +8,16 @@ class Admin extends CI_Controller {
 		$this->load->model('auth_model');
 	}
 
-	private function head(){
-		$this->load->view('header');
-	}
-
 	private function foot(){
 		$this->load->view('footer');
 	}
 
+	public function navbar(){
+		print_r($this->session->userdata('ip'));	
+	}
 	public function register()
 	{
+		$this->navbar();
 		$this->load->library('form_validation');
 		
 		$this->form_validation->set_rules('id', 'ID', 'required|min_length[6]|max_length[20]|is_unique[user.id]');
@@ -39,5 +39,6 @@ class Admin extends CI_Controller {
 
 			echo 'Register Success <br>'.$hash;
 		}
+		$this->foot();
 	}
 }

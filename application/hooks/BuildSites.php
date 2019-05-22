@@ -6,7 +6,6 @@ class BuildSites{
 	public function load_header(){
 		$CI =& get_instance();
 		$CI->load->view('header');		
-		$CI->load->view('navbar');
 	}
 	
 	public function load_footer(){

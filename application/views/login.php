@@ -34,13 +34,10 @@
             <form action="/index.php/auth/authentication" method="post">
               <input type="text" id="id" class="fadeIn second" name="id" placeholder="ID">
               <input type="password" id="pw" class="fadeIn third" name="pw" placeholder="Password">
+		
               <input type="submit" id="submit" class="fadeIn fourth" value="Log In">
             </form>
 
-            <!-- Remind Passowrd -->
-            <div id="formFooter">
-              <a class="underlineHover" href="#">Forgot Password?</a>
-            </div>
 
           </div>
         </div>
