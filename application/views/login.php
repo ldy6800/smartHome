@@ -18,7 +18,6 @@
             <div class="span12">
                 <div class="title-page">
                     <h2 class="title">SmartHome</h2>
-                    <p></p>
                     <h3 class="title-description">Smart Home based with Smart Grid</h3>
                 </div>
             </div>
@@ -34,7 +33,7 @@
             <form action="/index.php/auth/authentication" method="post">
               <input type="text" id="id" class="fadeIn second" name="id" placeholder="ID">
               <input type="password" id="pw" class="fadeIn third" name="pw" placeholder="Password">
-		
+<p></p>		
               <input type="submit" id="submit" class="fadeIn fourth" value="Log In">
             </form>
 
