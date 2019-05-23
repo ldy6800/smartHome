@@ -25,13 +25,29 @@ class System extends CI_Controller {
 		$prompt .= ' -t '.$topic.' -m '.$msg;
 		$result =shell_exec($prompt);
 
+		/*
 		echo '<pre>TOPIC : '.$topic.'<br>MSG: '.$msg.'<br><pre>';
 		echo '<hr>Result:<br>';
 		echo '<pre>'.$result.'</pre>';
+		*/
+		return $result;
 	}
 
 	public function pubChange($flag){
-		$this->publishMQTT('change', $flag);
+
+		$data = array();
+		$data['topic']='house-battery-change-1';
+		$data['flag']= $flag;
+		$data['result'] = $this->publishMQTT('house-battery-change-1', $flag);
+	
+		echo json_encode($data);	
+	}
+
+	public function test(){
+		$this->head();
+		$this->navbar();
+		$this->load->view('test');
+		$this->foot();
 	}
 
 	public function readFee(){
