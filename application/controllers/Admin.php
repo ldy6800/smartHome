@@ -8,6 +8,9 @@ class Admin extends CI_Controller {
 		$this->load->model('auth_model');
 	}
 
+	private function head(){
+		$this->load->view('header');
+	}
 	private function foot(){
 		$this->load->view('footer');
 	}
@@ -17,6 +20,7 @@ class Admin extends CI_Controller {
 	}
 	public function register()
 	{
+		$this->head();
 		$this->navbar();
 		$this->load->library('form_validation');
 		

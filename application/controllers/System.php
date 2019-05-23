@@ -7,7 +7,17 @@ class System extends CI_Controller {
 		parent::__construct();
 	}
 	
-	public function publishMQTT($topic, $msg, $host = ''){
+	private function head(){
+		$this->load->view('header');
+	}
+	private function navbar(){
+		$this->load->view('navbar');
+	}	
+	private function foot(){
+		$this->load->view('footer');
+	}
+
+	private function publishMQTT($topic, $msg, $host = ''){
 		$prompt = 'mosquitto_pub -d';
 		if ($host != '') $prompt .= ' -h '.$host;
 		if ($topic == '' || $msg == '') return;

@@ -8,11 +8,15 @@ class Auth extends CI_Controller {
 		$this->load->model('auth_model');
 	}
 
+	private function head(){
+		$this->load->view('header');
+	}
 	private function foot(){
 		$this->load->view('footer');
 
 	}	
 	public function login() {
+		$this->load->view('head');
 		$this->load->view('login');			
 		$this->foot();	
 	}
