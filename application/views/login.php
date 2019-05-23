@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<!--
-<div>
-	<form action="/index.php/auth/authentication" method="post">
-		ID		<input type="text" id="id" name="id" placeholder="ID">
-		PW	<input type="password" id="pw" name="pw" plcaeholder="Password">
-
-		<input type="submit" value="Register">
-	</form>
-</div>
--->
 <!-- Our Shortcodes Section -->
 <div id="shortcodes" class="page">
     <div class="container">

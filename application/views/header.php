@@ -17,8 +17,7 @@
 <link href="/_include/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Main Style -->
-<link href="/_include/css/main.css" rel="stylesheet">
-<link href="/_include/css/login.css" rel="stylesheet" id="bootstrap-css">  
+<link href="/_include/css/main.css" rel="stylesheet" id="bootstrap-css">
 
 <!-- Responsive -->
 <link href="/_include/css/bootstrap-responsive.min.css" rel="stylesheet">
