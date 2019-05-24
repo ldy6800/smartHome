@@ -19,8 +19,15 @@ class Home extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('device_model');
+	}
 	private function head(){
 		$this->load->view('header');
+	}
+	private function navbar(){
+		$this->load->view('navbar');
 	}
 	private function foot()
 	{
@@ -29,8 +36,31 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$this->head();
-		$this->load->view('navbar');
+		$this->navbar();
 		$this->load->view('main_page');
 		$this->foot();
+	}
+
+	public function charges(){
+		$this->head();
+		$this->navbar();
+
+		$this->load->view('charges');
+		$this->foot();
+	}
+
+	public function switches(){
+		$this->head();
+		$this->navbar();
+
+		echo $this->session->userdata('userID');
+		$device_list = $this->device_model->getDeviceList($this->session->userdata('userID'));
+
+		foreach($device_list as $a){
+			print_r($a);
+		}		
+		$this->load->view('switches', array('list' => $device_list));
+		$this->foot();
+		
 	}
 }

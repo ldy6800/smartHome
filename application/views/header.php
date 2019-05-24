@@ -18,7 +18,7 @@
 
 <!-- Main Style -->
 <link href="/_include/css/main.css" rel="stylesheet" id="bootstrap-css">
-
+<link href="/_include/css/buttonToggle.css" rel="stylesheet">
 <!-- Responsive -->
 <link href="/_include/css/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="/_include/css/responsive.css" rel="stylesheet">

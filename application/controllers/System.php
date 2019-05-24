@@ -43,6 +43,10 @@ class System extends CI_Controller {
 		echo json_encode($data);	
 	}
 
+	public function pubSwitchControl($id, $flag = 1){
+
+		$this->publishMQTT('house-device-switch-4w-'.$id, $flag);
+	}	
 	public function test(){
 		$this->head();
 		$this->navbar();
