@@ -23,7 +23,7 @@
 						foreach($list as $l):
 						?>
 							<div class="span4 checkbox">
-								<h3><?=$l->name?></h3>
+								<h3><?php echo ($l->name == '' ? 'NO NAME' : $l->name); ?></h3>
 								<!-- Rounded switch -->
 								<label class="switch">
 									<input type="checkbox" class="cbox_slider" value="<?=$l->id?>">

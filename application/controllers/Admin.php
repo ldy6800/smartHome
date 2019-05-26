@@ -16,7 +16,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function navbar(){
-		print_r($this->session->userdata('ip'));	
+		$this->load->view('navbar');
 	}
 	public function register()
 	{
