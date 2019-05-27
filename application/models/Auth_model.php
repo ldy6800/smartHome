@@ -32,4 +32,10 @@ class Auth_model extends CI_Model{
 		$this->db->like('data', $this->db->escape_like_str($userID));
 		$this->db->delete('ci_sessions');
 	}
+
+	public function checkPushToken($userID){
+		$result = $this->db->get_where('user', array('id' => $userID))->row();
+
+		return $result;
+	}
 }
