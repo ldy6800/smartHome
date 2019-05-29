@@ -45,7 +45,7 @@ class System extends CI_Controller {
 
 	public function pubSwitchControl($id, $flag = 1){
 
-		$this->publishMQTT('house-device-switch-4w-'.$id, $flag);
+		$this->publishMQTT('house-device-switch-'.$this->session->userdata('userID').'-'.$id, $flag);
 	}	
 	public function test(){
 		$this->head();
