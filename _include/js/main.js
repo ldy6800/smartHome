@@ -38,13 +38,13 @@ BRUSHED.listenerMenu = function(){
 	$('#menu-nav-mobile a').on('click', function(){		
 		var locati = $(this).attr("class");
 		if(locati == "externalMain"){
-			location.href="main.html";
+			location.href="/index.php/home";
 		}
 		else if(locati == "externalCharges"){
-			location.href="charges.html";
+			location.href="/index.php/home/charges";
 		}
 		else if(locati == "externalSwitch"){
-			location.href="smarthome.html"
+			location.href="/index.php/home/switches"
 		}
 		$('#mobile-nav').removeClass('open');
 		$('#navigation-mobile').slideUp(500, 'easeOutExpo');

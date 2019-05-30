@@ -4,14 +4,14 @@
     <div class="container">
             <!-- Title Page -->
           <div class="wrapper">
-              <a href="">
+              <a href="/index.php/home/switches">
                   <div class="title-page">
                       <h2 class="title">Smart Home</h2>
                       <h3 class="title-description">Management of devices</h3>
                   </div>
               </a>
 <hr class="line">
-             <a href="">
+             <a href="/index.php/home/charges">
                   <div class="title-page">
                       <h2 class="title">Charges</h2>
                       <h3 class="title-description">electric Statement</h3>

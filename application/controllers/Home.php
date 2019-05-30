@@ -63,4 +63,11 @@ class Home extends CI_Controller {
 		$this->foot();
 		
 	}
+
+	public function external(){
+		$this->head();
+		$this->navbar();
+		$this->load->view('external_graph');
+		$this->foot();
+	}
 }
