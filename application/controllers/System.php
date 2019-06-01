@@ -36,9 +36,9 @@ class System extends CI_Controller {
 	public function pubChange($flag){
 
 		$data = array();
-		$data['topic']='house-battery-change-1';
+		$data['topic']='house-battery-change-smarthome';
 		$data['flag']= $flag;
-		$data['result'] = $this->publishMQTT('house-battery-change-1', $flag);
+		$data['result'] = $this->publishMQTT('house-battery-change-smarthome', $flag);
 	
 		echo json_encode($data);	
 	}
@@ -76,20 +76,51 @@ class System extends CI_Controller {
 		return $fee;
 	}
 
-	public function calcFeeWithoutDiscount($kwh){
+	public function jsonChargeWithoutDiscount($kwh){
 		$data = $this->readFee();
-
-		$fee = 0;
-
+	/*	echo '<xmp>';
+		var_dump($data);
+		echo '</xmp>';*/
+		$f = 0;
+		$std = 1;
 		foreach($data['std'] as $d){
-			if ($d[0] < $kwh){
-				$std = key_search($kwh, $data);
+			$f +=(($kwh > $d[1]) ? $d[1] : $kwh) * $data['kwh'][array_search($d, $data['std'])];
+			$kwh -= (int)$d[1];
+			if ($kwh < 0) {
+				break;
 			}
-
-			
+			$std++;
 		}
+
+		if ($std > 4) $std= 4;
+		$f += (int)$data['base']['r'.$std];
+		//echo $f;
+
+		echo json_encode($f);
+		return $f;
 		
+	}
+	
+	public function jsonGetCurrentCharge(){
+		$userID = $this->session->userdata('userID');
+		
+		$path = "/var/www/data/sensor/".$userID."/external";
+
+		$kw = 0;
+		$handle = fopen($path, "r");
+		while($data = fgetcsv($handle, 1000, ",")){
+			$num = count($data);
+			if($data[3] == 0 || $data[4] == 1) continue;
+			$current = $data[1];
+			$volt = $data[2]; 
+			if ($volt < 0) continue;	
+			$kw += $current * $volt;
+		}
+		$kw /= 1000;	
+
+		$this->jsonChargeWithoutDiscount($kw);
 	}	
+	
 	public function modifyFeePage(){
 		$data = $this->readFee();
 	

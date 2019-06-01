@@ -3,6 +3,7 @@
 	<div class="span1" style="width: 1%;"></div> 
 	<div id='chart-div' class="span12" style="width: 90%; min-height: 350px"></div>
 </div>
+<a href="/index.php/home/solarGen">Change Graph</a>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- jQuery Core -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

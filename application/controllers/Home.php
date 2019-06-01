@@ -53,17 +53,21 @@ class Home extends CI_Controller {
 		$this->head();
 		$this->navbar();
 
-		echo $this->session->userdata('userID');
 		$device_list = $this->device_model->getDeviceList($this->session->userdata('userID'));
-
-		foreach($device_list as $a){
-			print_r($a);
-		}		
 		$this->load->view('switches', array('list' => $device_list));
 		$this->foot();
 		
 	}
 
+	public function solarGen(){
+		$this->head();
+		$this->navbar();
+		$url = '/index.php/graph/jsonSolarProfit';
+		$arg = array('url'=> $url, 'title' => 'Solar Generated Electricity', 'ko_title' => '태양광 발전량');
+		$this->load->view('graph', $arg);
+		//$this->load->view('kwh');
+		$this->foot();
+	}
 	public function external(){
 		$this->head();
 		$this->navbar();

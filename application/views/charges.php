@@ -11,12 +11,8 @@
                                         </div>
                                 </div>
                                 <!-- End Title Page -->
-								<div class="row">
-										<div class="span3"></div>
-										<div class="span7 align-center">
-											<div class="fee-div"></div>
-										</div>
-										<div class="span3"></div>
+								<div class="row" style="text-align: center;">
+											<div class="fee-div" style="display: inline-block; width: auto;"></div>
 								</div>
                         </div>
                 </div>
@@ -42,6 +38,7 @@
                     ind.setValue(Math.floor(data) + "₩");
                 }
             });
+
         }
 
 	$(document).ready(function(){
@@ -50,6 +47,9 @@
 		ind = new FlipClock($('.fee-div'), Math.floor(getCharge()) + "₩", {
 			clockFace: 'Counter',
 			minimumDigits: 6
-		}); 
+		});
+
+		won = $('.flip')
+		won[won.length-1].setAttribute('style', 'width: 65px'); 
 	});
 </script>

@@ -17,7 +17,14 @@
                       <h3 class="title-description">electric Statement</h3>
                   </div>
               </a>
-          </div>
+<hr class="line">
+             <a href="/index.php/home/external">
+                  <div class="title-page">
+                      <h2 class="title">Consumption Graph</h2>
+                      <h3 class="title-description">electric Statement</h3>
+                  </div>
+              </a>
+		</div>
   </div>
 </div>
 

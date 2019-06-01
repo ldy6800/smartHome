@@ -39,4 +39,28 @@ class Graph extends CI_Controller {
 		}
 		echo json_encode($json);
 	} 
+	
+	public function jsonSolarProfit(){
+		$userID = $this->session->userdata('userID');
+		
+		$path = '/var/www/data/sensor/'.$userID.'/solarGen';
+
+		$json = array();
+		$handle = fopen($path, "r");
+		while($data = fgetcsv($handle, 1000, ',')){
+			$date = $data[0];
+			$current = $data[1];
+			$volt = $data[2];
+			if ($current < 0 || $volt < 0) continue;
+			
+			$w = $volt * $current;
+			$js = array('date'=>$date, 'cons' => $w);
+			$json[] = $js;
+		
+		}
+		
+		echo json_encode($json);
+		
+	}
+
 }
