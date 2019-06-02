@@ -416,3 +416,20 @@
 
   100% {
     opacity: 0; } }
+
+.flip-clock-wrapper ul li a div div.inn{font-size: 60px; }
+@media screen and (max-width: 500px) and (min-width: 401px) {
+	.flip-clock-wrapper ul { height: 70px; line-height: 70px; }
+	.flip-clock-wrapper ul li {line-height: 70px; }
+	.flip-clock-wrapper ul li a div.up:after { top: 34px; }
+	.flip-clock-wrapper ul {width: 40px;}
+	.flip-clock-wrapper ul li a div div.inn { font-size: 40px; }
+}
+
+@media screen and (max-width: 400px){
+	.flip-clock-wrapper ul { height: 50px; line-height: 50px; }
+    .flip-clock-wrapper ul li {line-height: 50px; }
+    .flip-clock-wrapper ul li a div.up:after { top: 24px; }
+    .flip-clock-wrapper ul {width: 30px;}
+    .flip-clock-wrapper ul li a div div.inn { font-size: 30px; }
+}

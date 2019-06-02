@@ -65,13 +65,13 @@ p {
 	margin: 0 0 30px;
 }
 
-hr {
+.line {
 	border-style: dashed;
 	border-color: #3C3F45;
 	border-bottom: none;
 	border-left: none;
 	border-right: none;
-	margin: 50px 0;	
+	margin: 5% 0;	
 }
 
 .line{
@@ -839,7 +839,7 @@ input[type=text]:placeholder, input[type=password]:placeholder {
 
 .page {
 	background: #FFFFFF;
-	padding: 100px 0;
+	padding: 5% 0;
 	position: relative;
 	z-index: 99;
 }
@@ -853,7 +853,7 @@ input[type=text]:placeholder, input[type=password]:placeholder {
 
 .title-page {
 	text-align: center;
-	margin-bottom: 50px;	
+	margin-bottom: 5%;	
 }
 
 .title-page .title {
