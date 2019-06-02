@@ -4,6 +4,7 @@
     <div class="container">
             <!-- Title Page -->
           <div class="wrapper">
+		<?=$charges?>	<hr class="line">
               <a href="/index.php/home/switches">
                   <div class="title-page">
                       <h2 class="title">Smart Home</h2>

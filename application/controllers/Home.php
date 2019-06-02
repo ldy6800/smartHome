@@ -37,7 +37,8 @@ class Home extends CI_Controller {
 	{
 		$this->head();
 		$this->navbar();
-		$this->load->view('main_page');
+		$charges = $this->load->view('flip', array('url' => '/index.php/system/jsonGetCurrentCharge', 'unit' => '₩'), true);
+		$this->load->view('main_page', array('charges' => $charges));
 		$this->foot();
 	}
 
@@ -45,7 +46,7 @@ class Home extends CI_Controller {
 		$this->head();
 		$this->navbar();
 
-		$this->load->view('charges');
+		$this->load->view('flip', array('url' => '/index.php/system/jsonGetCurrentCharge', 'unit' => '₩'));
 		$this->foot();
 	}
 
@@ -72,6 +73,13 @@ class Home extends CI_Controller {
 		$this->head();
 		$this->navbar();
 		$this->load->view('external_graph');
+		$this->load->view('flip', array('url' => '/index.php/system/jsonGetKWh', 'unit' => '㎾'));
+		$this->foot();
+	}
+	public function kwh(){
+		$this->head();
+		$this->navbar();
+		$this->load->view('flip', array('url' => '/index.php/system/jsonGetKWh', 'unit' => '㎾'));
 		$this->foot();
 	}
 }

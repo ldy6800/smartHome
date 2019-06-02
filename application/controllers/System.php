@@ -42,11 +42,27 @@ class System extends CI_Controller {
 	
 		echo json_encode($data);	
 	}
-
 	public function pubSwitchControl($id, $flag = 1){
 
 		$this->publishMQTT('house-device-switch-'.$this->session->userdata('userID').'-'.$id, $flag);
 	}	
+	public function jsonGetKWh(){
+		$handle = fopen("/var/www/data/sensor/".$this->session->userdata('userID').'/external', "r");
+		fseek($handle, -10, SEEK_END);
+		while(($a = fgetc($handle)) != PHP_EOL){
+			fseek($handle, -2, SEEK_CUR);
+		}
+		$data = fgetcsv($handle, 1000, ',');
+		$current = $data[1];
+		$volt = $data[2];
+		$w = $current * $volt;
+		if($data[3] == 0 || $data[4] == 1 || $w < 0) $w =0;
+		
+		$js['measure'] = $w < 100 ? $w : $w/1000;
+		$js['unit'] = 	$w < 100 ? 'W' : '㎾';
+		echo json_encode($js);
+	}
+
 	public function test(){
 		$this->head();
 		$this->navbar();
@@ -96,7 +112,9 @@ class System extends CI_Controller {
 		$f += (int)$data['base']['r'.$std];
 		//echo $f;
 
-		echo json_encode($f);
+		$js['measure'] = floor($f);
+		$js['unit'] = '₩';
+		echo json_encode($js);
 		return $f;
 		
 	}
