@@ -45,6 +45,10 @@ class System extends CI_Controller {
 	public function pubSwitchControl($id, $flag = 1){
 
 		$this->publishMQTT('house-device-switch-'.$this->session->userdata('userID').'-'.$id, $flag);
+		$r['topic'] = 'house-device-switch-'.$this->session->userdata('userID').'-'.$id;
+		$r['flag'] = $flag;
+
+		echo json_encode($r);
 	}	
 	public function jsonGetKWh(){
 		$handle = fopen("/var/www/data/sensor/".$this->session->userdata('userID').'/external', "r");

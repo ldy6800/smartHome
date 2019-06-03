@@ -49,11 +49,9 @@
 <script>
 $(document).ready(function(){
     $(".cbox_slider").change(function(){
-        if($(".cbox_slider").is(":checked")){
-			console.log($(this).prop('value'));
+        if($(this).is(":checked")){
 			signal($(this).prop('value'), '1');
         }else{
-			console.log($(this).prop('value'));
 			signal($(this).prop('value'), '0');
         }
     });
@@ -67,7 +65,7 @@ function signal(id, flag){
 		contentType: 'application/json; charset=utf-8',
 		crossDomain: true,
 		success: function(data){
-			console.log(id + "On");
+			console.log(data);
 		}
 	})
 }
